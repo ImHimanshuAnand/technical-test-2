@@ -111,6 +111,7 @@ const Create = () => {
                   values.status = "active";
                   values.availability = "not available";
                   values.role = "ADMIN";
+                  values.name = values.username;
                   const res = await api.post("/user", values);
                   if (!res.ok) throw res;
                   toast.success("Created!");
@@ -248,6 +249,7 @@ const UserCard = ({ hit, projects }) => {
       <div className="flex flex-col flex-1 justify-between">
         <div className="flex flex-col items-center text-center my-4 space-y-1">
           <p className="font-semibold text-lg">{hit.name}</p>
+          <p>sadsads</p>
         </div>
       </div>
     </div>
