@@ -24,7 +24,8 @@ export default () => {
         initialValues={{ username: "", organisation: "", password: "" }}
         onSubmit={async (values, actions) => {
           try {
-            const { user, token } = await api.post(`/user/signup`, values);
+            const { user, token, code } = await api.post(`/user/signup`, values);
+            if(code) toast.error("Password Validation Error",code);
             if (token) api.setToken(token);
             if (user) dispatch(setUser(user));
           } catch (e) {
